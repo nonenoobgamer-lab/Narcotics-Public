@@ -9,7 +9,6 @@
     <targetsBodyPart>false</targetsBodyPart>
     <surgerySuccessChanceFactor>2.5</surgerySuccessChanceFactor>
     <surgeryIgnoreEnvironment>true</surgeryIgnoreEnvironment>
-    <deathOnFailedSurgery>false</deathOnFailedSurgery>
     <skillRequirements>
       <Medicine>3</Medicine>
     </skillRequirements>

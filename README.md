@@ -1,17 +1,17 @@
-# Narcotics
+﻿# Narcotics
 
-RimWorld 1.6 mod by **Anarchist** that adds four real-world-inspired narcotics using vanilla drug systems — highs, tolerance, addiction, withdrawal, and overdose — plus doctor **prescriptions** under Operations.
+RimWorld 1.6 mod by **Anarchist** that adds four real-world-inspired narcotics using vanilla drug systems â€” highs, tolerance, addiction, withdrawal, and overdose â€” plus doctor **prescriptions** under Operations.
 
-**Version:** 0.2.0
+**Version:** 0.2.1
 
-## What’s included
+## Whatâ€™s included
 
 | Drug | How you get it | Role |
 |------|----------------|------|
 | **Percocet** | Drug lab (neutroamine + herbal medicine) after research | Medical painkiller |
 | **Xanax** | Drug lab (neutroamine + smokeleaf leaves) after research | Medical mood booster |
-| **Weed** | Grow weed plant → harvest ready-to-smoke | Social high |
-| **Cocaine** | Grow coca → refine leaves at the drug lab | Hard stimulant |
+| **Weed** | Grow weed plant â†’ harvest ready-to-smoke | Social high |
+| **Cocaine** | Grow coca â†’ refine leaves at the drug lab | Hard stimulant |
 
 All finished drugs are **buyable and sellable** with traders.
 
@@ -49,3 +49,4 @@ Enable **Narcotics** in the Mods menu. Rebuild the DLL with `.\build.ps1` after 
 
 - RimWorld **1.6**
 - Core only (no DLC required)
+
