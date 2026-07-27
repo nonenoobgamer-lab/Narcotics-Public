@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
+  <!-- Dedicated tab so Narcotics nodes don't crowd the Main drug column. -->
+  <ResearchTabDef>
+    <defName>Narcotics</defName>
+    <label>Narcotics</label>
+    <generalTitle>Narcotics research projects</generalTitle>
+    <generalDescription>Unlock Narcotics drug recipes. All projects require drug production from the Main tab.</generalDescription>
+  </ResearchTabDef>
+
+  <!--
+    Layout (Narcotics tab):
+      X0              X1
+      Percocet   →    Fentanyl
+      Xanax
+      Cocaine
+    Vanilla spacing (~0.70). Fentanyl chains from Percocet.
+  -->
+
   <ResearchProjectDef>
     <defName>PercocetProduction</defName>
     <label>percocet production</label>
     <description>Synthesize percocet at a drug lab — a medical opioid painkiller made from neutroamine and herbal medicine.</description>
     <baseCost>500</baseCost>
     <techLevel>Industrial</techLevel>
+    <tab>Narcotics</tab>
     <prerequisites>
       <li>DrugProduction</li>
     </prerequisites>
-    <researchViewX>3.00</researchViewX>
-    <researchViewY>3.20</researchViewY>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
     <generalRules>
       <rulesStrings>
         <li>subject->percocet production</li>
@@ -22,16 +40,38 @@
   </ResearchProjectDef>
 
   <ResearchProjectDef>
+    <defName>FentanylProduction</defName>
+    <label>fentanyl production</label>
+    <description>Synthesize fentanyl at a drug lab — a potent synthetic opioid for extreme pain and surgical anesthesia, made from neutroamine and industrial medicine. Requires percocet production first.</description>
+    <baseCost>700</baseCost>
+    <techLevel>Industrial</techLevel>
+    <tab>Narcotics</tab>
+    <prerequisites>
+      <li>PercocetProduction</li>
+    </prerequisites>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->fentanyl production</li>
+        <li>subject_story->developed potent opioid synthesis for battlefield surgery</li>
+        <li>subject_gerund->synthesizing fentanyl</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
     <defName>XanaxProduction</defName>
     <label>xanax production</label>
     <description>Synthesize xanax at a drug lab — a medical mood stabilizer blended from neutroamine and smokeleaf extracts.</description>
     <baseCost>500</baseCost>
     <techLevel>Industrial</techLevel>
+    <tab>Narcotics</tab>
     <prerequisites>
       <li>DrugProduction</li>
     </prerequisites>
-    <researchViewX>3.00</researchViewX>
-    <researchViewY>3.50</researchViewY>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.70</researchViewY>
     <generalRules>
       <rulesStrings>
         <li>subject->xanax production</li>
@@ -47,36 +87,17 @@
     <description>Refine coca leaves into cocaine powder at a drug lab. A hard stimulant with intense euphoria and high addiction risk.</description>
     <baseCost>600</baseCost>
     <techLevel>Industrial</techLevel>
+    <tab>Narcotics</tab>
     <prerequisites>
       <li>DrugProduction</li>
     </prerequisites>
-    <researchViewX>3.00</researchViewX>
-    <researchViewY>3.80</researchViewY>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>1.40</researchViewY>
     <generalRules>
       <rulesStrings>
         <li>subject->cocaine production</li>
         <li>subject_story->refined leaf alkaloids in a back-alley orbital lab</li>
         <li>subject_gerund->refining cocaine</li>
-      </rulesStrings>
-    </generalRules>
-  </ResearchProjectDef>
-
-  <ResearchProjectDef>
-    <defName>FentanylProduction</defName>
-    <label>fentanyl production</label>
-    <description>Synthesize fentanyl at a drug lab — a potent synthetic opioid for extreme pain and surgical anesthesia, made from neutroamine and industrial medicine.</description>
-    <baseCost>700</baseCost>
-    <techLevel>Industrial</techLevel>
-    <prerequisites>
-      <li>DrugProduction</li>
-    </prerequisites>
-    <researchViewX>3.00</researchViewX>
-    <researchViewY>4.10</researchViewY>
-    <generalRules>
-      <rulesStrings>
-        <li>subject->fentanyl production</li>
-        <li>subject_story->developed potent opioid synthesis for battlefield surgery</li>
-        <li>subject_gerund->synthesizing fentanyl</li>
       </rulesStrings>
     </generalRules>
   </ResearchProjectDef>

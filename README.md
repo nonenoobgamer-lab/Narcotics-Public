@@ -2,7 +2,7 @@
 
 RimWorld 1.6 mod by **Anarchist** that adds real-world-inspired narcotics using vanilla drug systems — highs, tolerance, addiction, withdrawal, and overdose — plus doctor **prescriptions** under Operations.
 
-**Version:** 0.3.0
+**Version:** 0.3.1
 
 ## What’s included
 
@@ -29,7 +29,7 @@ Doctors can prescribe Percocet / Xanax / Weed / Cocaine / Fentanyl for **3** or 
 
 ## Research
 
-Requires **drug production**, then Percocet / Xanax / Cocaine / Fentanyl production. Weed and coca need no research to sow.
+Projects live on a dedicated **Narcotics** research tab (keeps the Main drug column clean). Requires **drug production** first, then Percocet / Xanax / Cocaine. **Fentanyl** unlocks after Percocet. Weed and coca need no research to sow.
 
 ## Versioning
 
