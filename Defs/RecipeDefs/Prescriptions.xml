@@ -242,4 +242,61 @@
     </modExtensions>
   </RecipeDef>
 
+  <!-- Fentanyl -->
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Fentanyl_3</defName>
+    <label>prescribe fentanyl (3 days)</label>
+    <description>Prescribe a 3-day course of fentanyl. The patient takes one dose during this visit, then once per day until the prescription ends. Requires a fentanyl dose for the first administration.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Fentanyl</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Fentanyl</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Fentanyl</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Fentanyl</prescriptionHediff>
+        <days>3</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Fentanyl_7</defName>
+    <label>prescribe fentanyl (7 days)</label>
+    <description>Prescribe a 7-day course of fentanyl. The patient takes one dose during this visit, then once per day until the prescription ends. Requires a fentanyl dose for the first administration.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Fentanyl</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Fentanyl</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Fentanyl</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Fentanyl</prescriptionHediff>
+        <days>7</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
 </Defs>

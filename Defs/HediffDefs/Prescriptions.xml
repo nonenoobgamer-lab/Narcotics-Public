@@ -103,4 +103,29 @@
     </stages>
   </HediffDef>
 
+  <HediffDef>
+    <defName>Narcotics_Prescription_Fentanyl</defName>
+    <label>fentanyl prescription</label>
+    <description>A doctor's order to take fentanyl once per day until the course is finished.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="Narcotics.HediffCompProperties_DrugPrescription">
+        <drugDef>Fentanyl</drugDef>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>active course</label>
+      </li>
+    </stages>
+  </HediffDef>
+
 </Defs>

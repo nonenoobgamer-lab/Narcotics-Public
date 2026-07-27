@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+  <!-- Allow Fentanyl as an alternative to medicine when anesthetizing. -->
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/RecipeDef[defName="Anesthetize"]/ingredients/li/filter</xpath>
+    <value>
+      <thingDefs>
+        <li>Fentanyl</li>
+      </thingDefs>
+    </value>
+  </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>Defs/RecipeDef[defName="Anesthetize"]/fixedIngredientFilter</xpath>
+    <value>
+      <thingDefs>
+        <li>Fentanyl</li>
+      </thingDefs>
+    </value>
+  </Operation>
+
+</Patch>
