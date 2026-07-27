@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <Narcotics_PrescriptionStarted>{0} prescribed {2} for {1} ({3} days).</Narcotics_PrescriptionStarted>
+  <Narcotics_PrescribeLabel>prescribe {0} ({1} days)</Narcotics_PrescribeLabel>
+  <Narcotics_PrescriptionTip>Prescribed {0}: take once daily. About {1} day(s) left.</Narcotics_PrescriptionTip>
+  <Narcotics_MissingPrescriptionDose>{0} has an active {1} prescription but no dose was available today.</Narcotics_MissingPrescriptionDose>
+</LanguageData>

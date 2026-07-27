@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- One prescription hediff per drug. Severity = days remaining (drains 1/day). -->
+
+  <HediffDef>
+    <defName>Narcotics_Prescription_Percocet</defName>
+    <label>percocet prescription</label>
+    <description>A doctor's order to take percocet once per day until the course is finished.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="Narcotics.HediffCompProperties_DrugPrescription">
+        <drugDef>Percocet</drugDef>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>active course</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Narcotics_Prescription_Xanax</defName>
+    <label>xanax prescription</label>
+    <description>A doctor's order to take xanax once per day until the course is finished.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="Narcotics.HediffCompProperties_DrugPrescription">
+        <drugDef>Xanax</drugDef>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>active course</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Narcotics_Prescription_Weed</defName>
+    <label>weed prescription</label>
+    <description>A doctor's order to take weed once per day until the course is finished.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="Narcotics.HediffCompProperties_DrugPrescription">
+        <drugDef>Weed</drugDef>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>active course</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Narcotics_Prescription_Cocaine</defName>
+    <label>cocaine prescription</label>
+    <description>A doctor's order to take cocaine once per day until the course is finished.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="Narcotics.HediffCompProperties_DrugPrescription">
+        <drugDef>Cocaine</drugDef>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>active course</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+</Defs>

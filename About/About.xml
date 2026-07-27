@@ -3,8 +3,8 @@
   <name>Narcotics</name>
   <author>Anarchist</author>
   <packageId>jeffr.Narcotics</packageId>
-  <modVersion IgnoreIfNoMatchingField="True">0.1.2</modVersion>
-  <description>Adds four real-world-inspired narcotics to RimWorld, built entirely on vanilla drug systems — highs, tolerance, addiction, withdrawal, and overdose.
+  <modVersion IgnoreIfNoMatchingField="True">0.2.0</modVersion>
+  <description>Adds four real-world-inspired narcotics to RimWorld, built on vanilla drug systems — highs, tolerance, addiction, withdrawal, and overdose — plus doctor prescriptions under Operations.
 
 What’s included:
 • Percocet — Medical opioid painkiller. Crafted at the drug lab from neutroamine and herbal medicine. Strong pain relief, mild mood lift, and sedation. Stacking doses can overdose.
@@ -12,16 +12,17 @@ What’s included:
 • Weed — Growable recreational crop. Harvest is ready to smoke (no crafting step). Social high with munchies and a milder overdose risk.
 • Cocaine — Grow coca plants, harvest leaves, then refine powder at the drug lab. Hard stimulant: euphoria, rest relief, pain dulling, and a movement boost. High addiction risk and full overdose danger.
 
+Doctor prescriptions (Operations):
+• Doctors can prescribe Percocet, Xanax, Weed, or Cocaine for a 3-day or 7-day course
+• The first dose is given during the operation (requires one unit of that drug)
+• Afterward the patient tries to take one dose per day from inventory or stockpiles until the prescription ends
+• Missing doses show a warning if none of the drug is available
+
 How to use them:
 • Research drug production, then Percocet / Xanax / Cocaine production for the lab recipes
 • Weed and coca are sowable in grow zones and hydroponics with no extra research
 • All finished drugs appear in trader stock — buy them or sell your surplus
-• Schedule medical pills through drug policies; treat addiction and withdrawal like vanilla chemicals
-
-Balance notes:
-• Everything uses CompProperties_Drug and Hediff_High the same way beer, yayo, and smokeleaf do
-• Medical pills are useful but risky if colonists binge
-• Cocaine is a high-reward hard drug with matching downside
+• Keep spare doses stocked so prescribed patients can take their daily pill
 
 Versioning: patches bump 0.0.1, new content bumps 0.1.0.
 

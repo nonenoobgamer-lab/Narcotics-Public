@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef Name="Narcotics_PrescribeBase" Abstract="True" ParentName="SurgeryFlesh">
+    <workerClass>Narcotics.Recipe_PrescribeDrug</workerClass>
+    <jobString>Writing a drug prescription.</jobString>
+    <workAmount>600</workAmount>
+    <hideBodyPartNames>true</hideBodyPartNames>
+    <targetsBodyPart>false</targetsBodyPart>
+    <surgerySuccessChanceFactor>2.5</surgerySuccessChanceFactor>
+    <surgeryIgnoreEnvironment>true</surgeryIgnoreEnvironment>
+    <deathOnFailedSurgery>false</deathOnFailedSurgery>
+    <skillRequirements>
+      <Medicine>3</Medicine>
+    </skillRequirements>
+  </RecipeDef>
+
+  <!-- Percocet -->
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Percocet_3</defName>
+    <label>prescribe percocet (3 days)</label>
+    <description>Prescribe a 3-day course of percocet. The patient takes one dose during this visit, then once per day until the prescription ends. Requires a percocet pill for the first dose.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Percocet</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Percocet</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Percocet</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Percocet</prescriptionHediff>
+        <days>3</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Percocet_7</defName>
+    <label>prescribe percocet (7 days)</label>
+    <description>Prescribe a 7-day course of percocet. The patient takes one dose during this visit, then once per day until the prescription ends. Requires a percocet pill for the first dose.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Percocet</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Percocet</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Percocet</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Percocet</prescriptionHediff>
+        <days>7</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <!-- Xanax -->
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Xanax_3</defName>
+    <label>prescribe xanax (3 days)</label>
+    <description>Prescribe a 3-day course of xanax. The patient takes one dose during this visit, then once per day until the prescription ends. Requires a xanax pill for the first dose.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Xanax</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Xanax</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Xanax</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Xanax</prescriptionHediff>
+        <days>3</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Xanax_7</defName>
+    <label>prescribe xanax (7 days)</label>
+    <description>Prescribe a 7-day course of xanax. The patient takes one dose during this visit, then once per day until the prescription ends. Requires a xanax pill for the first dose.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Xanax</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Xanax</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Xanax</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Xanax</prescriptionHediff>
+        <days>7</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <!-- Weed -->
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Weed_3</defName>
+    <label>prescribe weed (3 days)</label>
+    <description>Prescribe a 3-day course of weed. The patient takes one dose during this visit, then once per day until the prescription ends. Requires weed for the first dose.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Weed</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Weed</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Weed</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Weed</prescriptionHediff>
+        <days>3</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Weed_7</defName>
+    <label>prescribe weed (7 days)</label>
+    <description>Prescribe a 7-day course of weed. The patient takes one dose during this visit, then once per day until the prescription ends. Requires weed for the first dose.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Weed</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Weed</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Weed</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Weed</prescriptionHediff>
+        <days>7</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <!-- Cocaine -->
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Cocaine_3</defName>
+    <label>prescribe cocaine (3 days)</label>
+    <description>Prescribe a 3-day course of cocaine. The patient takes one dose during this visit, then once per day until the prescription ends. Requires cocaine for the first dose.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Cocaine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Cocaine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Cocaine</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Cocaine</prescriptionHediff>
+        <days>3</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Cocaine_7</defName>
+    <label>prescribe cocaine (7 days)</label>
+    <description>Prescribe a 7-day course of cocaine. The patient takes one dose during this visit, then once per day until the prescription ends. Requires cocaine for the first dose.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Cocaine</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Cocaine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Cocaine</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Cocaine</prescriptionHediff>
+        <days>7</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+</Defs>

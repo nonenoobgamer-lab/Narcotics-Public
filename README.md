@@ -1,29 +1,34 @@
 # Narcotics
 
-RimWorld 1.6 mod by **Anarchist** that adds four real-world-inspired narcotics using vanilla drug systems — highs, tolerance, addiction, withdrawal, and overdose.
+RimWorld 1.6 mod by **Anarchist** that adds four real-world-inspired narcotics using vanilla drug systems — highs, tolerance, addiction, withdrawal, and overdose — plus doctor **prescriptions** under Operations.
 
-**Version:** 0.1.2
+**Version:** 0.2.0
 
 ## What’s included
 
 | Drug | How you get it | Role |
 |------|----------------|------|
-| **Percocet** | Drug lab (neutroamine + herbal medicine) after research | Medical painkiller — strong pain relief, mild mood lift |
-| **Xanax** | Drug lab (neutroamine + smokeleaf leaves) after research | Medical mood booster — strong mood lift with sedation |
-| **Weed** | Grow weed plant → harvest ready-to-smoke | Social high — no crafting step |
-| **Cocaine** | Grow coca → refine leaves at the drug lab | Hard stimulant — euphoria, energy, high addiction risk |
+| **Percocet** | Drug lab (neutroamine + herbal medicine) after research | Medical painkiller |
+| **Xanax** | Drug lab (neutroamine + smokeleaf leaves) after research | Medical mood booster |
+| **Weed** | Grow weed plant → harvest ready-to-smoke | Social high |
+| **Cocaine** | Grow coca → refine leaves at the drug lab | Hard stimulant |
 
 All finished drugs are **buyable and sellable** with traders.
 
+## Prescriptions (Operations)
+
+Doctors can run these as medical operations on a patient:
+
+- Prescribe percocet / xanax / weed / cocaine for **3 days** or **7 days**
+- First dose is administered during the operation (costs 1 of that drug)
+- Patient then takes **one dose per day** from inventory or stockpiles until the course ends
+- Health tab shows remaining days; a warning appears if a daily dose is missing
+
+Requires Medicine skill 3+ on the surgeon.
+
 ## Research
 
-Requires **drug production**, then:
-
-- Percocet production
-- Xanax production
-- Cocaine production
-
-Weed and coca need no research to sow (grow zones / hydroponics).
+Requires **drug production**, then Percocet / Xanax / Cocaine production. Weed and coca need no research to sow.
 
 ## Versioning
 
@@ -38,7 +43,7 @@ Copy or link this folder to:
 
 `C:\Program Files (x86)\Steam\steamapps\common\Rimworld\RimWorld\Mods\Narcotics`
 
-Enable **Narcotics** in the Mods menu.
+Enable **Narcotics** in the Mods menu. Rebuild the DLL with `.\build.ps1` after C# changes.
 
 ## Compatibility
 
