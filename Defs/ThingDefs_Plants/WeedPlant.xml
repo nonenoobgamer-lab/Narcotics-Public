@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="PlantBase">
+    <defName>Plant_Weed</defName>
+    <label>weed plant</label>
+    <description>A leafy recreational crop. When mature, it can be harvested for ready-to-smoke weed. Makes users feel relaxed, but reduces motivation, and can be addictive.</description>
+    <statBases>
+      <MaxHitPoints>85</MaxHitPoints>
+      <Nutrition>0.2</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Plant/WeedPlant</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+    <ingestible />
+    <plant>
+      <growDays>8.50</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestTag>Standard</harvestTag>
+      <drugForHarvestPurposes>True</drugForHarvestPurposes>
+      <harvestedThingDef>Weed</harvestedThingDef>
+      <harvestYield>9</harvestYield>
+      <sowMinSkill>4</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
+      <topWindExposure>0.1</topWindExposure>
+      <visualSizeRange>0.3~1.0</visualSizeRange>
+      <wildOrder>2</wildOrder>
+    </plant>
+  </ThingDef>
+
+</Defs>

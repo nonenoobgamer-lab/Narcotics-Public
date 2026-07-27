@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>Percocet</defName>
+    <label>percocet</label>
+    <description>A medical opioid painkiller synthesized from neutroamine and herbal medicine. Strongly reduces pain and mildly lifts mood, but builds tolerance and can cause addiction. Taking too many doses in a short time risks overdose.</description>
+    <descriptionHyperlinks>
+      <HediffDef>PercocetHigh</HediffDef>
+      <HediffDef>PercocetTolerance</HediffDef>
+      <HediffDef>PercocetAddiction</HediffDef>
+    </descriptionHyperlinks>
+    <possessionCount>8</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Drug/Percocet</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <tradeability>All</tradeability>
+    <statBases>
+      <WorkToMake>700</WorkToMake>
+      <MarketValue>22</MarketValue>
+      <Mass>0.005</Mass>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <ingestible>
+      <joyKind>Chemical</joyKind>
+      <joy>0.17</joy>
+      <nurseable>true</nurseable>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>PercocetHigh</hediffDef>
+          <severity>0.45</severity>
+          <toleranceChemical>Oxycodone</toleranceChemical>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>PercocetTolerance</hediffDef>
+          <toleranceChemical>Oxycodone</toleranceChemical>
+          <severity>0.030</severity>
+          <divideByBodySize>true</divideByBodySize>
+          <multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>PercocetProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <soundWorking>Recipe_Drug</soundWorking>
+      <displayPriority>2200</displayPriority>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>2</Neutroamine>
+      <MedicineHerbal>1</MedicineHerbal>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>Oxycodone</chemical>
+        <addictiveness>0.03</addictiveness>
+        <minToleranceToAddict>0.15</minToleranceToAddict>
+        <existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+        <needLevelOffset>0.9</needLevelOffset>
+        <listOrder>1050</listOrder>
+        <overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+        <largeOverdoseChance>0.01</largeOverdoseChance>
+      </li>
+    </comps>
+    <allowedArchonexusCount>100</allowedArchonexusCount>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>PercocetHigh</defName>
+    <label>percocet</label>
+    <labelNoun>a percocet high</labelNoun>
+    <description>Active percocet in the bloodstream. Strongly dulls pain and produces a mild chemical warmth.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.2</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>relief</label>
+        <painFactor>0.40</painFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.02</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.35</minSeverity>
+        <label>heavy relief</label>
+        <painFactor>0.25</painFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.03</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.70</minSeverity>
+        <label>opioid fog</label>
+        <painFactor>0.15</painFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.06</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>PercocetBuzz</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>PercocetHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>percocet warmth</label>
+        <description>The pain is quieter. I feel a little easier.</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+      <li>
+        <label>deep percocet calm</label>
+        <description>Everything hurts less, and the world feels softer.</description>
+        <baseMoodEffect>13</baseMoodEffect>
+      </li>
+      <li>
+        <label>heavy percocet buzz</label>
+        <description>Floaty and warm. The pain is almost gone.</description>
+        <baseMoodEffect>16</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ChemicalDef>
+    <defName>Oxycodone</defName>
+    <label>oxycodone</label>
+    <addictionHediff>PercocetAddiction</addictionHediff>
+    <toleranceHediff>PercocetTolerance</toleranceHediff>
+    <onGeneratedAddictedToleranceChance>0.8</onGeneratedAddictedToleranceChance>
+    <geneToleranceBuildupFactorResist>0.5</geneToleranceBuildupFactorResist>
+    <geneToleranceBuildupFactorImmune>0</geneToleranceBuildupFactorImmune>
+  </ChemicalDef>
+
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_Oxycodone</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>percocet</label>
+    <description>Because of a percocet addiction, this person needs to regularly take percocet to avoid withdrawal symptoms.</description>
+    <listPriority>40</listPriority>
+  </NeedDef>
+
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>PercocetTolerance</defName>
+    <label>percocet tolerance</label>
+    <description>A built-up tolerance to percocet. The more severe this tolerance is, the more percocet it takes to get the same effect.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.015</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>Oxycodone</chemical>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddictionBase">
+    <defName>PercocetAddiction</defName>
+    <label>percocet addiction</label>
+    <description>A chemical addiction to percocet. Long-term presence of the opioid has caused neurological adaptations at the cellular level, so the brain can no longer function properly without the drug.
+\nWithout regular doses of percocet, withdrawal symptoms will begin. However, extended abstinence will force the brain to adapt back to its normal state, resolving the addiction.</description>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <chemicalNeed>Chemical_Oxycodone</chemicalNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.0333</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+      <li>
+        <label>withdrawal</label>
+        <painOffset>0.15</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.15</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.10</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Binging_DrugMajor</mentalState>
+            <mtbDays>40</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>PercocetWithdrawal</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>PercocetAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>percocet withdrawal</label>
+        <description>Aching all over. Restless. I keep thinking about another dose.</description>
+        <baseMoodEffect>-30</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

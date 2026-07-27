@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>PercocetProduction</defName>
+    <label>percocet production</label>
+    <description>Synthesize percocet at a drug lab — a medical opioid painkiller made from neutroamine and herbal medicine.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>DrugProduction</li>
+    </prerequisites>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>3.20</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->percocet production</li>
+        <li>subject_story->developed industrial opioid synthesis for frontier clinics</li>
+        <li>subject_gerund->synthesizing percocet</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>XanaxProduction</defName>
+    <label>xanax production</label>
+    <description>Synthesize xanax at a drug lab — a medical mood stabilizer blended from neutroamine and smokeleaf extracts.</description>
+    <baseCost>500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>DrugProduction</li>
+    </prerequisites>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>3.50</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->xanax production</li>
+        <li>subject_story->formulated calming chem blends for stressed spacer crews</li>
+        <li>subject_gerund->synthesizing xanax</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>CocaineProduction</defName>
+    <label>cocaine production</label>
+    <description>Refine coca leaves into cocaine powder at a drug lab. A hard stimulant with intense euphoria and high addiction risk.</description>
+    <baseCost>600</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>DrugProduction</li>
+    </prerequisites>
+    <researchViewX>3.00</researchViewX>
+    <researchViewY>3.80</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->cocaine production</li>
+        <li>subject_story->refined leaf alkaloids in a back-alley orbital lab</li>
+        <li>subject_gerund->refining cocaine</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
+</Defs>

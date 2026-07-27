@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="RoughPlantBase">
+    <defName>CocaLeaves</defName>
+    <label>coca leaves</label>
+    <description>Raw cut leaves of a coca plant. Can be refined into cocaine at a drug lab.</description>
+    <graphicData>
+      <texPath>Things/Item/Resource/PlantFoodRaw/CocaLeaves</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>1.8</MarketValue>
+      <Flammability>1.3</Flammability>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>30</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+    <thingCategories>
+      <li>PlantMatter</li>
+    </thingCategories>
+    <ingestible>
+      <preferability>DesperateOnly</preferability>
+      <canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+    </ingestible>
+  </ThingDef>
+
+</Defs>

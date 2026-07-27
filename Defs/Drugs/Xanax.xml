@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MakeableDrugPillBase">
+    <defName>Xanax</defName>
+    <label>xanax</label>
+    <description>A medical mood stabilizer synthesized from neutroamine and smokeleaf extracts. Strongly lifts mood and calms anxiety, with noticeable sedation. Builds tolerance and can cause addiction. Stacking doses risks overdose.</description>
+    <descriptionHyperlinks>
+      <HediffDef>XanaxHigh</HediffDef>
+      <HediffDef>XanaxTolerance</HediffDef>
+      <HediffDef>XanaxAddiction</HediffDef>
+    </descriptionHyperlinks>
+    <possessionCount>8</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Drug/Xanax</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <tradeability>All</tradeability>
+    <statBases>
+      <WorkToMake>650</WorkToMake>
+      <MarketValue>20</MarketValue>
+      <Mass>0.005</Mass>
+      <Flammability>0.7</Flammability>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <ingestible>
+      <joyKind>Chemical</joyKind>
+      <joy>0.20</joy>
+      <nurseable>true</nurseable>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>XanaxHigh</hediffDef>
+          <severity>0.50</severity>
+          <toleranceChemical>Alprazolam</toleranceChemical>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>XanaxTolerance</hediffDef>
+          <toleranceChemical>Alprazolam</toleranceChemical>
+          <severity>0.030</severity>
+          <divideByBodySize>true</divideByBodySize>
+          <multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>XanaxProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <soundWorking>Recipe_Drug</soundWorking>
+      <displayPriority>2210</displayPriority>
+    </recipeMaker>
+    <costList>
+      <Neutroamine>2</Neutroamine>
+      <SmokeleafLeaves>3</SmokeleafLeaves>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>Alprazolam</chemical>
+        <addictiveness>0.03</addictiveness>
+        <minToleranceToAddict>0.15</minToleranceToAddict>
+        <existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+        <needLevelOffset>0.9</needLevelOffset>
+        <listOrder>1060</listOrder>
+        <overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+        <largeOverdoseChance>0.01</largeOverdoseChance>
+      </li>
+    </comps>
+    <allowedArchonexusCount>100</allowedArchonexusCount>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>XanaxHigh</defName>
+    <label>xanax</label>
+    <labelNoun>a xanax high</labelNoun>
+    <description>Active xanax in the bloodstream. Calms the mind and lifts mood, with sedating side effects.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.0</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>calm</label>
+        <painFactor>0.90</painFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.05</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.04</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.35</minSeverity>
+        <label>sedated</label>
+        <painFactor>0.90</painFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+      </li>
+      <li>
+        <minSeverity>0.70</minSeverity>
+        <label>benzo fog</label>
+        <painFactor>0.85</painFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.18</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.12</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>XanaxBuzz</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>XanaxHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>xanax calm</label>
+        <description>The edge is gone. I feel steady.</description>
+        <baseMoodEffect>15</baseMoodEffect>
+      </li>
+      <li>
+        <label>deep xanax ease</label>
+        <description>Warm, quiet mind. Nothing feels urgent.</description>
+        <baseMoodEffect>22</baseMoodEffect>
+      </li>
+      <li>
+        <label>heavy xanax bliss</label>
+        <description>Floaty and untroubled. Anxiety is a distant memory.</description>
+        <baseMoodEffect>26</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ChemicalDef>
+    <defName>Alprazolam</defName>
+    <label>alprazolam</label>
+    <addictionHediff>XanaxAddiction</addictionHediff>
+    <toleranceHediff>XanaxTolerance</toleranceHediff>
+    <onGeneratedAddictedToleranceChance>0.8</onGeneratedAddictedToleranceChance>
+    <geneToleranceBuildupFactorResist>0.5</geneToleranceBuildupFactorResist>
+    <geneToleranceBuildupFactorImmune>0</geneToleranceBuildupFactorImmune>
+  </ChemicalDef>
+
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_Alprazolam</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>xanax</label>
+    <description>Because of a xanax addiction, this person needs to regularly take xanax to avoid withdrawal symptoms.</description>
+    <listPriority>41</listPriority>
+  </NeedDef>
+
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>XanaxTolerance</defName>
+    <label>xanax tolerance</label>
+    <description>A built-up tolerance to xanax. The more severe this tolerance is, the more xanax it takes to get the same effect.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.015</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>Alprazolam</chemical>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddictionBase">
+    <defName>XanaxAddiction</defName>
+    <label>xanax addiction</label>
+    <description>A chemical addiction to xanax. Long-term use has caused neurological adaptations at the cellular level, so the brain can no longer function properly without the drug.
+\nWithout regular doses of xanax, withdrawal symptoms will begin. However, extended abstinence will force the brain to adapt back to its normal state, resolving the addiction.</description>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <chemicalNeed>Chemical_Alprazolam</chemicalNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.0333</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+      <li>
+        <label>withdrawal</label>
+        <socialFightChanceFactor>1.5</socialFightChanceFactor>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.12</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.08</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Binging_DrugMajor</mentalState>
+            <mtbDays>45</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>XanaxWithdrawal</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>XanaxAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>xanax withdrawal</label>
+        <description>Jittery and raw-nerved. Every worry feels louder without a dose.</description>
+        <baseMoodEffect>-28</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

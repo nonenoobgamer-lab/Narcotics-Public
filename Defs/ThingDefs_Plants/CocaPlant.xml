@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="PlantBase">
+    <defName>Plant_Coca</defName>
+    <label>coca plant</label>
+    <description>A leafy plant cultivated for its alkaloid-rich leaves. Harvested coca leaves can be refined into cocaine at a drug lab.</description>
+    <statBases>
+      <MaxHitPoints>85</MaxHitPoints>
+      <Nutrition>0.2</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Plant/CocaPlant</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <selectable>true</selectable>
+    <pathCost>14</pathCost>
+    <ingestible />
+    <plant>
+      <growDays>9.50</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestTag>Standard</harvestTag>
+      <drugForHarvestPurposes>True</drugForHarvestPurposes>
+      <harvestedThingDef>CocaLeaves</harvestedThingDef>
+      <harvestYield>8</harvestYield>
+      <sowMinSkill>6</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
+      <topWindExposure>0.1</topWindExposure>
+      <visualSizeRange>0.5~1.0</visualSizeRange>
+      <wildOrder>2</wildOrder>
+      <fertilityMin>0.50</fertilityMin>
+      <fertilitySensitivity>0.4</fertilitySensitivity>
+    </plant>
+  </ThingDef>
+
+</Defs>

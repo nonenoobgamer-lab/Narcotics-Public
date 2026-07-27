@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="MakeableDrugBase">
+    <defName>Cocaine</defName>
+    <label>cocaine</label>
+    <description>A refined white powder made from coca leaves. When snorted it produces an intense euphoric high, reduces the need for rest, dulls pain, and speeds movement. Highly addictive. Taking too much risks a severe overdose.</description>
+    <descriptionHyperlinks>
+      <HediffDef>CocaineHigh</HediffDef>
+      <HediffDef>CocaineTolerance</HediffDef>
+      <HediffDef>CocaineAddiction</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Item/Drug/Cocaine</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+      <drawSize>0.80</drawSize>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <tradeability>All</tradeability>
+    <statBases>
+      <WorkToMake>350</WorkToMake>
+      <MarketValue>22</MarketValue>
+      <Mass>0.05</Mass>
+    </statBases>
+    <techLevel>Industrial</techLevel>
+    <minRewardCount>10</minRewardCount>
+    <ingestible>
+      <foodType>Processed</foodType>
+      <joyKind>Chemical</joyKind>
+      <joy>0.80</joy>
+      <drugCategory>Hard</drugCategory>
+      <baseIngestTicks>150</baseIngestTicks>
+      <ingestSound>Ingest_Snort</ingestSound>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <ingestCommandString>Snort {0}</ingestCommandString>
+      <ingestReportString>Snorting {0}.</ingestReportString>
+      <useEatingSpeedStat>false</useEatingSpeedStat>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>CocaineHigh</hediffDef>
+          <severity>0.75</severity>
+          <toleranceChemical>Cocaine</toleranceChemical>
+        </li>
+        <li Class="IngestionOutcomeDoer_OffsetNeed">
+          <need>Rest</need>
+          <offset>0.35</offset>
+          <toleranceChemical>Cocaine</toleranceChemical>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>CocaineTolerance</hediffDef>
+          <toleranceChemical>Cocaine</toleranceChemical>
+          <severity>0.040</severity>
+          <divideByBodySize>true</divideByBodySize>
+          <multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <recipeMaker>
+      <researchPrerequisite>CocaineProduction</researchPrerequisite>
+      <recipeUsers>
+        <li>DrugLab</li>
+      </recipeUsers>
+      <soundWorking>Recipe_Drug</soundWorking>
+      <displayPriority>1750</displayPriority>
+    </recipeMaker>
+    <costList>
+      <CocaLeaves>8</CocaLeaves>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>Cocaine</chemical>
+        <addictiveness>0.045</addictiveness>
+        <existingAddictionSeverityOffset>0.25</existingAddictionSeverityOffset>
+        <needLevelOffset>0.9</needLevelOffset>
+        <isCombatEnhancingDrug>true</isCombatEnhancingDrug>
+        <listOrder>120</listOrder>
+        <overdoseSeverityOffset>0.18~0.35</overdoseSeverityOffset>
+        <largeOverdoseChance>0.01</largeOverdoseChance>
+      </li>
+    </comps>
+    <allowedArchonexusCount>150</allowedArchonexusCount>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>CocaineHigh</defName>
+    <label>high on cocaine</label>
+    <labelNoun>a cocaine high</labelNoun>
+    <description>Active cocaine in the bloodstream. Generates an intense euphoric, energized high.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.8</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <painFactor>0.50</painFactor>
+        <statFactors>
+          <RestFallRateFactor>0.40</RestFallRateFactor>
+        </statFactors>
+        <capMods>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>0.15</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>CocaineHigh</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>CocaineHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>cocaine rush</label>
+        <description>Electric. Confident. Nothing can stop me.</description>
+        <baseMoodEffect>22</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ChemicalDef>
+    <defName>Cocaine</defName>
+    <label>cocaine</label>
+    <addictionHediff>CocaineAddiction</addictionHediff>
+    <toleranceHediff>CocaineTolerance</toleranceHediff>
+    <onGeneratedAddictedToleranceChance>0.8</onGeneratedAddictedToleranceChance>
+    <geneToleranceBuildupFactorResist>0.5</geneToleranceBuildupFactorResist>
+    <geneToleranceBuildupFactorImmune>0</geneToleranceBuildupFactorImmune>
+    <geneOverdoseChanceFactorResist>0.5</geneOverdoseChanceFactorResist>
+    <geneOverdoseChanceFactorImmune>0</geneOverdoseChanceFactorImmune>
+  </ChemicalDef>
+
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_Cocaine</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>cocaine</label>
+    <description>Because of a cocaine addiction, this person needs to regularly consume cocaine to avoid withdrawal symptoms.</description>
+    <listPriority>45</listPriority>
+  </NeedDef>
+
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>CocaineTolerance</defName>
+    <label>cocaine tolerance</label>
+    <description>A built-up tolerance to cocaine. The more severe this tolerance is, the more cocaine it takes to get the same effect.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.015</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>Cocaine</chemical>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddictionBase">
+    <defName>CocaineAddiction</defName>
+    <label>cocaine addiction</label>
+    <description>A chemical addiction to cocaine. Long-term use has caused neurological adaptations at the cellular level, so the brain can no longer function properly without the drug.
+\nWithout regular doses of cocaine, withdrawal symptoms will begin. However, extended abstinence will force the brain to adapt back to its normal state, resolving the addiction.</description>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <chemicalNeed>Chemical_Cocaine</chemicalNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.0333</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+      <li>
+        <label>withdrawal</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.20</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.15</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Binging_DrugMajor</mentalState>
+            <mtbDays>35</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>CocaineWithdrawal</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>CocaineAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>cocaine withdrawal</label>
+        <description>Flat, exhausted, craving another rush. Everything feels dull.</description>
+        <baseMoodEffect>-32</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

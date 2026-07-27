@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugBase">
+    <defName>Weed</defName>
+    <label>weed</label>
+    <description>Dried flower harvested from a weed plant. Smoking it produces a relaxed social high, eases mild pain, and increases appetite, but slows thinking and movement. Can lead to dependence. Binge use carries a mild overdose risk.\n\nReady to use when harvested — no crafting required.</description>
+    <descriptionHyperlinks>
+      <HediffDef>WeedHigh</HediffDef>
+      <HediffDef>WeedTolerance</HediffDef>
+      <HediffDef>WeedAddiction</HediffDef>
+    </descriptionHyperlinks>
+    <possessionCount>5</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Drug/Weed</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <tradeability>All</tradeability>
+    <statBases>
+      <MarketValue>10</MarketValue>
+      <Mass>0.05</Mass>
+      <DeteriorationRate>5</DeteriorationRate>
+      <Flammability>1.2</Flammability>
+    </statBases>
+    <techLevel>Neolithic</techLevel>
+    <ingestible>
+      <foodType>Plant, Processed</foodType>
+      <joyKind>Chemical</joyKind>
+      <joy>0.70</joy>
+      <baseIngestTicks>650</baseIngestTicks>
+      <nurseable>true</nurseable>
+      <drugCategory>Social</drugCategory>
+      <ingestSound>Ingest_Smoke</ingestSound>
+      <ingestEffect>Smoke_Joint</ingestEffect>
+      <ingestEffectEat>EatVegetarian</ingestEffectEat>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <ingestCommandString>Smoke {0}</ingestCommandString>
+      <ingestReportString>Smoking {0}.</ingestReportString>
+      <ingestReportStringEat>Consuming {0}.</ingestReportStringEat>
+      <useEatingSpeedStat>false</useEatingSpeedStat>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>WeedHigh</hediffDef>
+          <severity>0.55</severity>
+          <toleranceChemical>Cannabis</toleranceChemical>
+        </li>
+        <li Class="IngestionOutcomeDoer_OffsetNeed">
+          <need>Rest</need>
+          <offset>-0.08</offset>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>WeedTolerance</hediffDef>
+          <toleranceChemical>Cannabis</toleranceChemical>
+          <severity>0.028</severity>
+          <divideByBodySize>true</divideByBodySize>
+          <multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>Cannabis</chemical>
+        <addictiveness>0.020</addictiveness>
+        <minToleranceToAddict>0.15</minToleranceToAddict>
+        <existingAddictionSeverityOffset>0.06</existingAddictionSeverityOffset>
+        <needLevelOffset>0.9</needLevelOffset>
+        <listOrder>25</listOrder>
+        <overdoseSeverityOffset>0.08~0.14</overdoseSeverityOffset>
+      </li>
+    </comps>
+    <allowedArchonexusCount>80</allowedArchonexusCount>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>WeedHigh</defName>
+    <label>stoned on weed</label>
+    <labelNoun>a weed high</labelNoun>
+    <description>Active cannabis chemicals in the bloodstream. Generates a relaxed, fuzzy sense of well-being.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.0</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <hungerRateFactorOffset>0.30</hungerRateFactorOffset>
+        <painOffset>-0.15</painOffset>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.25</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.10</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>WeedHigh</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>WeedHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>high on weed</label>
+        <description>Chill. Everything's a little funnier.</description>
+        <baseMoodEffect>14</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ChemicalDef>
+    <defName>Cannabis</defName>
+    <label>cannabis</label>
+    <addictionHediff>WeedAddiction</addictionHediff>
+    <toleranceHediff>WeedTolerance</toleranceHediff>
+    <onGeneratedAddictedToleranceChance>0.8</onGeneratedAddictedToleranceChance>
+    <geneToleranceBuildupFactorResist>0.5</geneToleranceBuildupFactorResist>
+    <geneToleranceBuildupFactorImmune>0</geneToleranceBuildupFactorImmune>
+  </ChemicalDef>
+
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_Cannabis</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>weed</label>
+    <description>Because of a weed dependence, this person needs to regularly consume weed to avoid withdrawal symptoms.</description>
+    <listPriority>26</listPriority>
+  </NeedDef>
+
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>WeedTolerance</defName>
+    <label>weed tolerance</label>
+    <description>A built-up tolerance to weed. The more severe this tolerance is, the more weed it takes to get the same effect.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.015</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>Cannabis</chemical>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddictionBase">
+    <defName>WeedAddiction</defName>
+    <label>weed dependence</label>
+    <description>A chemical addiction to weed. Long-term use has caused neurological adaptations at the cellular level, so the brain can no longer function properly without the drug.
+\nWithout regular doses of weed, withdrawal symptoms will begin. However, extended abstinence will force the brain to adapt back to its normal state, resolving the addiction.</description>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <chemicalNeed>Chemical_Cannabis</chemicalNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.0333</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+      <li>
+        <label>withdrawal</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.15</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.10</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Binging_Food</mentalState>
+            <mtbDays>30</mtbDays>
+          </li>
+          <li>
+            <mentalState>Binging_DrugMajor</mentalState>
+            <mtbDays>50</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>WeedWithdrawal</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>WeedAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>weed withdrawal</label>
+        <description>Irritable and restless. I keep wanting a smoke.</description>
+        <baseMoodEffect>-18</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

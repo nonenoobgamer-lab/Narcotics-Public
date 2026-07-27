@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Narcotics</name>
+  <author>Anarchist</author>
+  <packageId>jeffr.Narcotics</packageId>
+  <modVersion IgnoreIfNoMatchingField="True">0.1.0</modVersion>
+  <description>Adds real-world-inspired narcotics to RimWorld using vanilla drug mechanics.
+
+Percocet — Medical painkiller crafted at the drug lab. Strong pain relief, mild mood lift, addiction risk, and overdose if overused.
+
+Xanax — Medical mood stabilizer crafted at the drug lab. Strong mood boost with sedation, addiction risk, and overdose if stacked.
+
+Weed — Growable recreational crop. Harvest is ready to use (no crafting). Social high with milder overdose risk.
+
+Cocaine — Grow coca, harvest leaves, refine powder at the drug lab. Hard stimulant with high addiction and full overdose risk.
+
+All finished drugs can be bought from and sold to traders. Patch updates bump 0.0.1; new content bumps 0.1.0.</description>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+</ModMetaData>
