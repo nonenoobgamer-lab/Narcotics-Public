@@ -2,7 +2,7 @@
 
 RimWorld 1.6 mod by **Anarchist** that adds real-world-inspired narcotics using vanilla drug mechanics.
 
-**Version:** 0.1.0
+**Version:** 0.1.1
 
 ## Contents
 

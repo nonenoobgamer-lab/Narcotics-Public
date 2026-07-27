@@ -70,8 +70,9 @@ function Save-Png([System.Drawing.Bitmap]$bmp, [string]$path) {
   $bmp.Save($path, [System.Drawing.Imaging.ImageFormat]::Png)
 }
 
-function Make-StackFrames([System.Drawing.Bitmap]$single, [string]$basePath) {
-  Save-Png $single "${basePath}_a.png"
+function Make-StackFrames([System.Drawing.Bitmap]$single, [string]$folderPath) {
+  if (-not (Test-Path $folderPath)) { New-Item -ItemType Directory -Force -Path $folderPath | Out-Null }
+  Save-Png $single (Join-Path $folderPath "a.png")
 
   $b = New-Object System.Drawing.Bitmap $size, $size, ([System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
   $gb = [System.Drawing.Graphics]::FromImage($b)
@@ -81,7 +82,7 @@ function Make-StackFrames([System.Drawing.Bitmap]$single, [string]$basePath) {
   $gb.DrawImage($single, 8, 40, $s, $s)
   $gb.DrawImage($single, 48, 20, $s, $s)
   $gb.DrawImage($single, 28, 8, $s, $s)
-  $gb.Dispose(); Save-Png $b "${basePath}_b.png"; $b.Dispose()
+  $gb.Dispose(); Save-Png $b (Join-Path $folderPath "b.png"); $b.Dispose()
 
   $c = New-Object System.Drawing.Bitmap $size, $size, ([System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
   $gc = [System.Drawing.Graphics]::FromImage($c)
@@ -96,7 +97,7 @@ function Make-StackFrames([System.Drawing.Bitmap]$single, [string]$basePath) {
   foreach ($p in $positions) {
     $gc.DrawImage($single, $p[0], $p[1], $s2, $s2)
   }
-  $gc.Dispose(); Save-Png $c "${basePath}_c.png"; $c.Dispose()
+  $gc.Dispose(); Save-Png $c (Join-Path $folderPath "c.png"); $c.Dispose()
 }
 
 function Load-Downscaled([string]$srcPath, [int]$maxDim = 256) {
@@ -120,8 +121,8 @@ function Process-Item([string]$name, [string]$relDir) {
   $bmp.Dispose()
   $fit = Fit-Square $trans $size
   $trans.Dispose()
-  $outBase = Join-Path $tex (Join-Path $relDir $name)
-  Make-StackFrames $fit $outBase
+  $outFolder = Join-Path $tex (Join-Path $relDir $name)
+  Make-StackFrames $fit $outFolder
   $fit.Dispose()
 }
 

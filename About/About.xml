@@ -3,7 +3,7 @@
   <name>Narcotics</name>
   <author>Anarchist</author>
   <packageId>jeffr.Narcotics</packageId>
-  <modVersion IgnoreIfNoMatchingField="True">0.1.0</modVersion>
+  <modVersion IgnoreIfNoMatchingField="True">0.1.1</modVersion>
   <description>Adds real-world-inspired narcotics to RimWorld using vanilla drug mechanics.
 
 Percocet — Medical painkiller crafted at the drug lab. Strong pain relief, mild mood lift, addiction risk, and overdose if overused.
