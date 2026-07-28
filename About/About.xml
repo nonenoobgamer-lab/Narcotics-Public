@@ -1,30 +1,30 @@
-ï»¿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>Narcotics</name>
   <author>Anarchist</author>
   <packageId>jeffr.Narcotics</packageId>
-  <modVersion IgnoreIfNoMatchingField="True">0.4.0</modVersion>
-  <description>Adds real-world-inspired narcotics to RimWorld, built on vanilla drug systems â€” highs, tolerance, addiction, withdrawal, and overdose â€” plus doctor prescriptions under Operations.
+  <modVersion IgnoreIfNoMatchingField="True">0.4.1</modVersion>
+  <description>Adds real-world-inspired narcotics to RimWorld, built on vanilla drug systems — highs, tolerance, addiction, withdrawal, and overdose — plus doctor prescriptions under Operations.
 
 What's included:
-â€¢ Percocet â€” Medical opioid painkiller. Crafted at the drug lab from neutroamine and herbal medicine.
-â€¢ Xanax â€” Medical mood stabilizer. Crafted at the drug lab from neutroamine and smokeleaf leaves.
-â€¢ Weed â€” Growable recreational crop. Harvest is ready to smoke.
-â€¢ Cocaine â€” Grow coca, refine at the drug lab. Hard stimulant.
-â€¢ Fentanyl â€” Potent synthetic opioid at the drug lab. Usable for Anesthetize.
-â€¢ Meth â€” Extremely addictive hard stimulant cooked only at a meth lab (neutroamine + chemfuel). Longer and harder than cocaine.
-â€¢ Psychedelic mushrooms â€” Growable fungi. Eat for a vivid social trip.
-â€¢ Salvia â€” Growable plant. Short intense trip; users may believe they are a random object.
+• Percocet — Medical opioid painkiller. Crafted at the drug lab from neutroamine and herbal medicine.
+• Xanax — Medical mood stabilizer. Crafted at the drug lab from neutroamine and smokeleaf leaves.
+• Weed — Growable recreational crop. Harvest is ready to smoke.
+• Cocaine — Grow coca, refine at the drug lab. Hard stimulant.
+• Fentanyl — Potent synthetic opioid at the drug lab. Usable for Anesthetize.
+• Meth — Extremely addictive hard stimulant cooked only at a meth lab (neutroamine + chemfuel). Longer and harder than cocaine.
+• Psychedelic mushrooms — Growable fungi. Eat for a vivid social trip.
+• Salvia — Growable plant. Short intense trip; users may believe they are a random object.
 
 Drug dealers:
-â€¢ Occasional drug dealer caravans stock every Narcotics drug
-â€¢ Addicted colonists with no colony supply may automatically go buy their drug from the dealer
+• Occasional drug dealer caravans stock every Narcotics drug
+• Addicted colonists with no colony supply may automatically go buy their drug from the dealer
 
 Doctor prescriptions (Operations): 3-day or 7-day courses for each Narcotics drug.
 
 Research: drug production (Main), then Narcotics tab for Percocet / Xanax / Cocaine / Fentanyl / Meth. Growables need no research. Build a meth lab after meth production.
 
-RimWorld 1.6. Core only â€” no DLC required.</description>
+RimWorld 1.6. Core only — no DLC required.</description>
   <supportedVersions>
     <li>1.6</li>
   </supportedVersions>

@@ -1,21 +1,21 @@
-﻿# Narcotics
+# Narcotics
 
-RimWorld 1.6 mod by **Anarchist** — real-world-inspired narcotics using vanilla drug systems, plus prescriptions, a meth lab, growable psychs, and drug-dealer caravans.
+RimWorld 1.6 mod by **Anarchist** � real-world-inspired narcotics using vanilla drug systems, plus prescriptions, a meth lab, growable psychs, and drug-dealer caravans.
 
-**Version:** 0.4.0
+**Version:** 0.4.1
 
-## What’s included
+## What�s included
 
 | Drug | How you get it | Role |
 |------|----------------|------|
 | **Percocet** | Drug lab | Medical painkiller |
 | **Xanax** | Drug lab | Medical mood booster |
-| **Weed** | Grow → harvest | Social high |
-| **Cocaine** | Grow coca → drug lab | Hard stimulant |
+| **Weed** | Grow ? harvest | Social high |
+| **Cocaine** | Grow coca ? drug lab | Hard stimulant |
 | **Fentanyl** | Drug lab | Strong opioid; anesthetize |
 | **Meth** | **Meth lab** only | Super-addictive hard stimulant |
-| **Psychedelic mushrooms** | Grow → harvest | Social psychedelic trip |
-| **Salvia** | Grow → harvest | Short trip; “I am a random object” |
+| **Psychedelic mushrooms** | Grow ? harvest | Social psychedelic trip |
+| **Salvia** | Grow ? harvest | Short trip; �I am a random object� |
 
 ## Meth lab
 
@@ -31,7 +31,7 @@ While high, the pawn gets a hediff/thought that they **are** a randomly chosen o
 
 ## Prescriptions
 
-Operations → prescribe any Narcotics drug for 3 or 7 days.
+Operations ? prescribe any Narcotics drug for 3 or 7 days.
 
 ## Research
 

@@ -31,7 +31,7 @@
       <baseIngestTicks>400</baseIngestTicks>
       <nurseable>true</nurseable>
       <drugCategory>Social</drugCategory>
-      <ingestSound>Ingest_Eat</ingestSound>
+      <ingestSound>Ingest_Pill</ingestSound>
       <ingestHoldUsesTable>false</ingestHoldUsesTable>
       <ingestCommandString>Eat {0}</ingestCommandString>
       <ingestReportString>Eating {0}.</ingestReportString>
@@ -169,7 +169,7 @@
         </capMods>
         <mentalStateGivers>
           <li>
-            <mentalState>Binging_DrugMinor</mentalState>
+            <mentalState>Binging_DrugMajor</mentalState>
             <mtbDays>45</mtbDays>
           </li>
         </mentalStateGivers>

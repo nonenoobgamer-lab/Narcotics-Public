@@ -169,7 +169,7 @@
         <label>withdrawal</label>
         <mentalStateGivers>
           <li>
-            <mentalState>Binging_DrugMinor</mentalState>
+            <mentalState>Binging_DrugMajor</mentalState>
             <mtbDays>55</mtbDays>
           </li>
         </mentalStateGivers>
