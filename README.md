@@ -2,7 +2,7 @@
 
 RimWorld 1.6 mod by **Anarchist** — real-world-inspired narcotics using vanilla drug systems, plus prescriptions, a meth lab, growable psychs, and drug-dealer caravans.
 
-**Version:** 0.4.6
+**Version:** 0.4.7
 
 ## What’s included
 

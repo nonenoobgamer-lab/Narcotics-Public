@@ -4,7 +4,7 @@
   <ThingDef ParentName="DrugBase">
     <defName>Salvia</defName>
     <label>salvia</label>
-    <description>Dried salvia leaves. Smoking them triggers a very short, overwhelming dissociative trip — users often become convinced they are a random nearby object. Mildly habit-forming if abused.\n\nReady to use when harvested — no crafting required.</description>
+    <description>Dried salvia leaves. Smoking them triggers a very short, overwhelming dissociative trip — the user drops to the floor unconscious and often becomes convinced they are a random object. Mildly habit-forming if abused.\n\nReady to use when harvested — no crafting required.</description>
     <descriptionHyperlinks>
       <HediffDef>SalviaHigh</HediffDef>
       <HediffDef>SalviaTolerance</HediffDef>
@@ -70,7 +70,7 @@
     <defName>SalviaHigh</defName>
     <label>salvia trip</label>
     <labelNoun>a salvia trip</labelNoun>
-    <description>A brief, crushing wave of salvinorin. Reality folds; identity slips. This person may believe they are an inanimate object until it passes.</description>
+    <description>A brief, crushing wave of salvinorin. Reality folds; identity slips. The user collapses unconscious for the trip and may believe they are an inanimate object until it passes.</description>
     <hediffClass>HediffWithComps</hediffClass>
     <defaultLabelColor>(0.4,0.75,0.35)</defaultLabelColor>
     <scenarioCanAdd>true</scenarioCanAdd>
@@ -84,19 +84,14 @@
       <li Class="Narcotics.HediffCompProperties_ObjectDelusion" />
     </comps>
     <stages>
+      <!-- Whole trip: downed / out cold, like anesthetic sedation. -->
       <li>
+        <label>out of it</label>
+        <painFactor>0</painFactor>
         <capMods>
           <li>
             <capacity>Consciousness</capacity>
-            <offset>-0.25</offset>
-          </li>
-          <li>
-            <capacity>Moving</capacity>
-            <offset>-0.15</offset>
-          </li>
-          <li>
-            <capacity>Talking</capacity>
-            <offset>-0.20</offset>
+            <setMax>0.01</setMax>
           </li>
         </capMods>
       </li>
