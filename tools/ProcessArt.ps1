@@ -158,9 +158,64 @@ Process-Item "Xanax" "Things\Item\Drug"
 Process-Item "Weed" "Things\Item\Drug"
 Process-Item "Cocaine" "Things\Item\Drug"
 Process-Item "Fentanyl" "Things\Item\Drug"
+Process-Item "Meth" "Things\Item\Drug"
+Process-Item "PsychedelicMushrooms" "Things\Item\Drug"
+Process-Item "Salvia" "Things\Item\Drug"
 Process-Item "CocaLeaves" "Things\Item\Resource\PlantFoodRaw"
 Process-Plant "WeedPlant1.png" "WeedPlant"
 Process-Plant "CocaPlant1.png" "CocaPlant"
+Process-Plant "PsychedelicMushroomPlant1.png" "PsychedelicMushroom"
+Process-Plant "SalviaPlant1.png" "SalviaPlant"
+
+function Process-BuildingMulti([string]$srcName, [string]$baseName) {
+  $srcPath = Join-Path $assets $srcName
+  Write-Output "Processing building $srcPath"
+  $bmp = Load-Downscaled $srcPath 384
+  $trans = Make-Transparent $bmp
+  $bmp.Dispose()
+  # Fit into wide bench canvas ~224x96 then pad to power-friendly size
+  $bounds = Get-ContentBounds $trans
+  $cropped = $trans.Clone($bounds, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+  $trans.Dispose()
+  $w = 256; $h = 128
+  $south = New-Object System.Drawing.Bitmap $w, $h, ([System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+  $g = [System.Drawing.Graphics]::FromImage($south)
+  $g.Clear([System.Drawing.Color]::Transparent)
+  $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+  $scale = [Math]::Min(($w - 16) / [double]$cropped.Width, ($h - 16) / [double]$cropped.Height)
+  $dw = [int]($cropped.Width * $scale); $dh = [int]($cropped.Height * $scale)
+  $g.DrawImage($cropped, ($w - $dw) / 2, ($h - $dh) / 2, $dw, $dh)
+  $g.Dispose(); $cropped.Dispose()
+
+  $dir = Join-Path $tex "Things\Building\Production"
+  if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
+  Save-Png $south (Join-Path $dir "${baseName}_south.png")
+
+  # North = horizontal flip of south
+  $north = New-Object System.Drawing.Bitmap $w, $h, ([System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+  $gn = [System.Drawing.Graphics]::FromImage($north)
+  $gn.Clear([System.Drawing.Color]::Transparent)
+  $gn.TranslateTransform($w, 0); $gn.ScaleTransform(-1, 1)
+  $gn.DrawImage($south, 0, 0, $w, $h)
+  $gn.Dispose(); Save-Png $north (Join-Path $dir "${baseName}_north.png"); $north.Dispose()
+
+  # East/West: shrink width for end-on view
+  $ew = 128; $eh = 128
+  foreach ($facing in @("east", "west")) {
+    $side = New-Object System.Drawing.Bitmap $ew, $eh, ([System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+    $gs = [System.Drawing.Graphics]::FromImage($side)
+    $gs.Clear([System.Drawing.Color]::Transparent)
+    $gs.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+    if ($facing -eq "west") { $gs.TranslateTransform($ew, 0); $gs.ScaleTransform(-1, 1) }
+    $gs.DrawImage($south, 16, 16, $ew - 32, $eh - 32)
+    $gs.Dispose()
+    Save-Png $side (Join-Path $dir "${baseName}_${facing}.png")
+    $side.Dispose()
+  }
+  $south.Dispose()
+}
+
+Process-BuildingMulti "MethLab_south.png" "MethLab"
 
 Write-Output "Done."
 Get-ChildItem $tex -Recurse -Filter *.png | ForEach-Object { "$($_.FullName.Replace($tex,'')) $($_.Length)" }

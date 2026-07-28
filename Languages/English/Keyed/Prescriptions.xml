@@ -4,4 +4,5 @@
   <Narcotics_PrescribeLabel>prescribe {0} ({1} days)</Narcotics_PrescribeLabel>
   <Narcotics_PrescriptionTip>Prescribed {0}: take once daily. About {1} day(s) left.</Narcotics_PrescriptionTip>
   <Narcotics_MissingPrescriptionDose>{0} has an active {1} prescription but no dose was available today.</Narcotics_MissingPrescriptionDose>
+  <Narcotics_SalviaDelusion>{0} believes they are {1}.</Narcotics_SalviaDelusion>
 </LanguageData>

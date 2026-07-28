@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="PlantBase">
+    <defName>Plant_PsychedelicMushroom</defName>
+    <label>psychedelic mushroom</label>
+    <description>A colorful psychoactive fungus. When mature it can be harvested for edible psychedelic mushrooms. Users experience a vivid trip with mild addiction risk.</description>
+    <statBases>
+      <MaxHitPoints>70</MaxHitPoints>
+      <Nutrition>0.15</Nutrition>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Plant/PsychedelicMushroom</texPath>
+      <graphicClass>Graphic_Random</graphicClass>
+    </graphicData>
+    <selectable>true</selectable>
+    <pathCost>10</pathCost>
+    <ingestible />
+    <plant>
+      <growDays>11</growDays>
+      <dieIfLeafless>true</dieIfLeafless>
+      <harvestTag>Standard</harvestTag>
+      <drugForHarvestPurposes>True</drugForHarvestPurposes>
+      <harvestedThingDef>PsychedelicMushrooms</harvestedThingDef>
+      <harvestYield>7</harvestYield>
+      <sowMinSkill>5</sowMinSkill>
+      <sowTags>
+        <li>Ground</li>
+        <li>Hydroponic</li>
+      </sowTags>
+      <topWindExposure>0.05</topWindExposure>
+      <visualSizeRange>0.25~0.85</visualSizeRange>
+      <wildOrder>2</wildOrder>
+    </plant>
+  </ThingDef>
+
+</Defs>

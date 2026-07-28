@@ -102,4 +102,25 @@
     </generalRules>
   </ResearchProjectDef>
 
+  <ResearchProjectDef>
+    <defName>MethProduction</defName>
+    <label>meth production</label>
+    <description>Build a meth lab and cook meth from neutroamine and chemfuel. Extremely addictive hard stimulant — stronger and longer than cocaine.</description>
+    <baseCost>700</baseCost>
+    <techLevel>Industrial</techLevel>
+    <tab>Narcotics</tab>
+    <prerequisites>
+      <li>DrugProduction</li>
+    </prerequisites>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>2.10</researchViewY>
+    <generalRules>
+      <rulesStrings>
+        <li>subject->meth production</li>
+        <li>subject_story->improvised a desert cookhouse that ran on chemfuel and bad decisions</li>
+        <li>subject_gerund->cooking meth</li>
+      </rulesStrings>
+    </generalRules>
+  </ResearchProjectDef>
+
 </Defs>

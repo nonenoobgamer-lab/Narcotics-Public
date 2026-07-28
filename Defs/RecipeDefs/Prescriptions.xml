@@ -299,4 +299,175 @@
     </modExtensions>
   </RecipeDef>
 
+  <!-- Meth -->
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Meth_3</defName>
+    <label>prescribe meth (3 days)</label>
+    <description>Prescribe a 3-day course of meth. The patient takes one dose during this visit, then once per day until the prescription ends. Requires a meth dose for the first administration.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Meth</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Meth</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Meth</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Meth</prescriptionHediff>
+        <days>3</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Meth_7</defName>
+    <label>prescribe meth (7 days)</label>
+    <description>Prescribe a 7-day course of meth. The patient takes one dose during this visit, then once per day until the prescription ends. Requires a meth dose for the first administration.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Meth</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Meth</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Meth</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Meth</prescriptionHediff>
+        <days>7</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <!-- Psychedelic mushrooms -->
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_PsychedelicMushrooms_3</defName>
+    <label>prescribe psychedelic mushrooms (3 days)</label>
+    <description>Prescribe a 3-day course of psychedelic mushrooms. The patient takes one dose during this visit, then once per day until the prescription ends.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>PsychedelicMushrooms</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>PsychedelicMushrooms</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>PsychedelicMushrooms</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_PsychedelicMushrooms</prescriptionHediff>
+        <days>3</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_PsychedelicMushrooms_7</defName>
+    <label>prescribe psychedelic mushrooms (7 days)</label>
+    <description>Prescribe a 7-day course of psychedelic mushrooms. The patient takes one dose during this visit, then once per day until the prescription ends.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>PsychedelicMushrooms</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>PsychedelicMushrooms</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>PsychedelicMushrooms</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_PsychedelicMushrooms</prescriptionHediff>
+        <days>7</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <!-- Salvia -->
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Salvia_3</defName>
+    <label>prescribe salvia (3 days)</label>
+    <description>Prescribe a 3-day course of salvia. The patient takes one dose during this visit, then once per day until the prescription ends.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Salvia</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Salvia</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Salvia</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Salvia</prescriptionHediff>
+        <days>3</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
+  <RecipeDef ParentName="Narcotics_PrescribeBase">
+    <defName>Narcotics_Prescribe_Salvia_7</defName>
+    <label>prescribe salvia (7 days)</label>
+    <description>Prescribe a 7-day course of salvia. The patient takes one dose during this visit, then once per day until the prescription ends.</description>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Salvia</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>Salvia</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <modExtensions>
+      <li Class="Narcotics.PrescriptionExtension">
+        <drugDef>Salvia</drugDef>
+        <prescriptionHediff>Narcotics_Prescription_Salvia</prescriptionHediff>
+        <days>7</days>
+      </li>
+    </modExtensions>
+  </RecipeDef>
+
 </Defs>

@@ -1,50 +1,56 @@
 ﻿# Narcotics
 
-RimWorld 1.6 mod by **Anarchist** that adds real-world-inspired narcotics using vanilla drug systems — highs, tolerance, addiction, withdrawal, and overdose — plus doctor **prescriptions** under Operations.
+RimWorld 1.6 mod by **Anarchist** — real-world-inspired narcotics using vanilla drug systems, plus prescriptions, a meth lab, growable psychs, and drug-dealer caravans.
 
-**Version:** 0.3.1
+**Version:** 0.4.0
 
 ## What’s included
 
 | Drug | How you get it | Role |
 |------|----------------|------|
-| **Percocet** | Drug lab (neutroamine + herbal medicine) | Medical painkiller |
-| **Xanax** | Drug lab (neutroamine + smokeleaf leaves) | Medical mood booster |
-| **Weed** | Grow weed plant → harvest ready-to-smoke | Social high |
-| **Cocaine** | Grow coca → refine leaves at the drug lab | Hard stimulant |
-| **Fentanyl** | Drug lab (neutroamine + industrial medicine) | Stronger opioid painkiller; also usable to anesthetize |
+| **Percocet** | Drug lab | Medical painkiller |
+| **Xanax** | Drug lab | Medical mood booster |
+| **Weed** | Grow → harvest | Social high |
+| **Cocaine** | Grow coca → drug lab | Hard stimulant |
+| **Fentanyl** | Drug lab | Strong opioid; anesthetize |
+| **Meth** | **Meth lab** only | Super-addictive hard stimulant |
+| **Psychedelic mushrooms** | Grow → harvest | Social psychedelic trip |
+| **Salvia** | Grow → harvest | Short trip; “I am a random object” |
 
-All finished drugs are **buyable and sellable** with traders.
+## Meth lab
 
-## Fentanyl notes
+Research **meth production**, then build a **meth lab** (Production). Meth cannot be cooked at a normal drug lab.
 
-- Stronger pain relief and heavier sedation than Percocet
-- Higher addiction and overdose risk
-- Research **fentanyl production** after drug production
-- Vanilla **Anesthetize** can use medicine **or** fentanyl
+## Drug dealers
 
-## Prescriptions (Operations)
+A **drug dealer** caravan may arrive carrying every Narcotics drug. Colonists addicted to a Narcotics drug with none left in the colony can automatically walk over and buy a dose (costs silver).
 
-Doctors can prescribe Percocet / Xanax / Weed / Cocaine / Fentanyl for **3** or **7** days. First dose during the operation; then one dose per day from stockpiles until the course ends.
+## Salvia
+
+While high, the pawn gets a hediff/thought that they **are** a randomly chosen object (chair, rifle, meal, etc.). Very short duration.
+
+## Prescriptions
+
+Operations → prescribe any Narcotics drug for 3 or 7 days.
 
 ## Research
 
-Projects live on a dedicated **Narcotics** research tab (keeps the Main drug column clean). Requires **drug production** first, then Percocet / Xanax / Cocaine. **Fentanyl** unlocks after Percocet. Weed and coca need no research to sow.
+Narcotics tab after **drug production**: Percocet, Xanax, Cocaine, Fentanyl (after Percocet), Meth. Weed / coca / mushrooms / salvia need no research.
 
 ## Versioning
 
 | Change type | Bump |
 |-------------|------|
-| Patch (balance, bug fix, description, typo) | +0.0.1 |
-| Addition (new drug / content) | +0.1.0 |
+| Patch | +0.0.1 |
+| Addition | +0.1.0 |
 
 ## Install
 
-Copy or link this folder to:
+Copy or link to:
 
 `C:\Program Files (x86)\Steam\steamapps\common\Rimworld\RimWorld\Mods\Narcotics`
 
-Enable **Narcotics** in the Mods menu. Rebuild the DLL with `.\build.ps1` after C# changes.
+Rebuild C# with `.\build.ps1` after code changes.
 
 ## Compatibility
 

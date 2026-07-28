@@ -1,0 +1,28 @@
+Narcotics — RimWorld 1.6
+by Anarchist
+
+Adds real-world-inspired narcotics using vanilla drug systems: highs, tolerance, addiction, withdrawal, and overdose — plus doctor prescriptions, a meth lab, growable psychs, and drug-dealer caravans.
+
+[h1]What's included[/h1]
+[list]
+[*][b]Percocet / Xanax[/b] — Medical pills at the drug lab
+[*][b]Weed / Cocaine[/b] — Growables (cocaine refined at drug lab)
+[*][b]Fentanyl[/b] — Strong opioid; can anesthetize
+[*][b]Meth[/b] — Cooked only at a [b]meth lab[/b]. Extremely addictive hard stimulant
+[*][b]Psychedelic mushrooms[/b] — Grow and eat for a vivid trip
+[*][b]Salvia[/b] — Short trip; users may believe they are a random object
+[/list]
+
+[h1]Drug dealers[/h1]
+Occasional dealer caravans stock [b]every[/b] Narcotics drug. Addicts with no colony supply may automatically buy from the dealer.
+
+[h1]Prescriptions[/h1]
+Doctors can prescribe any Narcotics drug for 3 or 7 days under Operations.
+
+[h1]Research[/h1]
+Drug production (Main tab), then the Narcotics tab. Meth unlocks the meth lab. Growables need no research.
+
+[h1]Links[/h1]
+Public GitHub: https://github.com/nonenoobgamer-lab/Narcotics-Public
+
+If you enjoy the mod, a thumbs-up and a comment help a lot.

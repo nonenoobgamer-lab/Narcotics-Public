@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugBase">
+    <defName>PsychedelicMushrooms</defName>
+    <label>psychedelic mushrooms</label>
+    <description>Harvested psychoactive mushroom caps. Eating them produces a vivid social trip — strong mood lift with fuzzy thinking and slightly unsteady movement. Mildly addictive if used often.\n\nReady to eat when harvested — no crafting required.</description>
+    <descriptionHyperlinks>
+      <HediffDef>PsychedelicMushroomsHigh</HediffDef>
+      <HediffDef>PsychedelicMushroomsTolerance</HediffDef>
+      <HediffDef>PsychedelicMushroomsAddiction</HediffDef>
+    </descriptionHyperlinks>
+    <possessionCount>5</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Drug/PsychedelicMushrooms</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <tradeability>All</tradeability>
+    <statBases>
+      <MarketValue>13</MarketValue>
+      <Mass>0.04</Mass>
+      <DeteriorationRate>6</DeteriorationRate>
+      <Flammability>0.8</Flammability>
+    </statBases>
+    <techLevel>Neolithic</techLevel>
+    <ingestible>
+      <foodType>Plant, Processed</foodType>
+      <joyKind>Chemical</joyKind>
+      <joy>0.80</joy>
+      <baseIngestTicks>400</baseIngestTicks>
+      <nurseable>true</nurseable>
+      <drugCategory>Social</drugCategory>
+      <ingestSound>Ingest_Eat</ingestSound>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <ingestCommandString>Eat {0}</ingestCommandString>
+      <ingestReportString>Eating {0}.</ingestReportString>
+      <useEatingSpeedStat>false</useEatingSpeedStat>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>PsychedelicMushroomsHigh</hediffDef>
+          <severity>0.60</severity>
+          <toleranceChemical>Psilocybin</toleranceChemical>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>PsychedelicMushroomsTolerance</hediffDef>
+          <toleranceChemical>Psilocybin</toleranceChemical>
+          <severity>0.025</severity>
+          <divideByBodySize>true</divideByBodySize>
+          <multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>Psilocybin</chemical>
+        <addictiveness>0.015</addictiveness>
+        <minToleranceToAddict>0.20</minToleranceToAddict>
+        <existingAddictionSeverityOffset>0.05</existingAddictionSeverityOffset>
+        <needLevelOffset>0.85</needLevelOffset>
+        <listOrder>28</listOrder>
+        <overdoseSeverityOffset>0.10~0.18</overdoseSeverityOffset>
+      </li>
+    </comps>
+    <allowedArchonexusCount>80</allowedArchonexusCount>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>PsychedelicMushroomsHigh</defName>
+    <label>tripping on mushrooms</label>
+    <labelNoun>a mushroom trip</labelNoun>
+    <description>Active psilocybin in the bloodstream. Colors bloom; thoughts wander; the world feels softer and stranger.</description>
+    <hediffClass>Hediff_High</hediffClass>
+    <defaultLabelColor>(0.7,0.3,0.9)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.2</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.05</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>PsychedelicMushroomsHigh</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>PsychedelicMushroomsHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>mushroom trip</label>
+        <description>The walls are breathing. It's beautiful.</description>
+        <baseMoodEffect>22</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ChemicalDef>
+    <defName>Psilocybin</defName>
+    <label>psilocybin</label>
+    <addictionHediff>PsychedelicMushroomsAddiction</addictionHediff>
+    <toleranceHediff>PsychedelicMushroomsTolerance</toleranceHediff>
+    <onGeneratedAddictedToleranceChance>0.5</onGeneratedAddictedToleranceChance>
+    <geneToleranceBuildupFactorResist>0.5</geneToleranceBuildupFactorResist>
+    <geneToleranceBuildupFactorImmune>0</geneToleranceBuildupFactorImmune>
+  </ChemicalDef>
+
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_Psilocybin</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>psychedelic mushrooms</label>
+    <description>Because of a dependence on psychedelic mushrooms, this person needs to regularly consume them to avoid withdrawal.</description>
+    <listPriority>27</listPriority>
+  </NeedDef>
+
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>PsychedelicMushroomsTolerance</defName>
+    <label>mushroom tolerance</label>
+    <description>A built-up tolerance to psychedelic mushrooms. The more severe this tolerance is, the more it takes to get the same trip.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.015</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>Psilocybin</chemical>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddictionBase">
+    <defName>PsychedelicMushroomsAddiction</defName>
+    <label>mushroom dependence</label>
+    <description>A chemical dependence on psychedelic mushrooms. Without regular doses, withdrawal symptoms will begin. Extended abstinence resolves the addiction.</description>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <chemicalNeed>Chemical_Psilocybin</chemicalNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.0333</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+      <li>
+        <label>withdrawal</label>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+        </capMods>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Binging_DrugMinor</mentalState>
+            <mtbDays>45</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>PsychedelicMushroomsWithdrawal</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>PsychedelicMushroomsAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>mushroom withdrawal</label>
+        <description>Flat and colorless. Missing that soft glow.</description>
+        <baseMoodEffect>-14</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

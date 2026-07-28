@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraderKindDef>
+    <defName>Narcotics_DrugDealer</defName>
+    <label>drug dealer</label>
+    <stockGenerators>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Silver</thingDef>
+        <countRange>400~800</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Percocet</thingDef>
+        <countRange>15~35</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Xanax</thingDef>
+        <countRange>15~35</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Weed</thingDef>
+        <countRange>20~45</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Cocaine</thingDef>
+        <countRange>12~30</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Fentanyl</thingDef>
+        <countRange>10~25</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Meth</thingDef>
+        <countRange>12~30</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>PsychedelicMushrooms</thingDef>
+        <countRange>15~35</countRange>
+      </li>
+      <li Class="StockGenerator_SingleDef">
+        <thingDef>Salvia</thingDef>
+        <countRange>15~35</countRange>
+      </li>
+    </stockGenerators>
+  </TraderKindDef>
+
+  <IncidentDef>
+    <defName>Narcotics_DrugDealerArrival</defName>
+    <label>drug dealer arrival</label>
+    <letterLabel>Drug dealer</letterLabel>
+    <letterText>A drug dealer has arrived to trade. They carry a full selection of narcotics.\n\nAddicted colonists with no colony stock of their drug may seek the dealer on their own.</letterText>
+    <letterDef>NeutralEvent</letterDef>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>Narcotics.IncidentWorker_DrugDealerArrival</workerClass>
+    <category>FactionArrival</category>
+    <baseChance>2.2</baseChance>
+    <requireColonistsPresent>True</requireColonistsPresent>
+  </IncidentDef>
+
+  <JobDef>
+    <defName>Narcotics_BuyDrugFromDealer</defName>
+    <driverClass>Narcotics.JobDriver_BuyDrugFromDealer</driverClass>
+    <reportString>buying drugs from TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+</Defs>

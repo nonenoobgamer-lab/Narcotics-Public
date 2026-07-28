@@ -128,4 +128,79 @@
     </stages>
   </HediffDef>
 
+  <HediffDef>
+    <defName>Narcotics_Prescription_Meth</defName>
+    <label>meth prescription</label>
+    <description>A doctor's order to take meth once per day until the course is finished.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="Narcotics.HediffCompProperties_DrugPrescription">
+        <drugDef>Meth</drugDef>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>active course</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Narcotics_Prescription_PsychedelicMushrooms</defName>
+    <label>psychedelic mushrooms prescription</label>
+    <description>A doctor's order to take psychedelic mushrooms once per day until the course is finished.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="Narcotics.HediffCompProperties_DrugPrescription">
+        <drugDef>PsychedelicMushrooms</drugDef>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>active course</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>Narcotics_Prescription_Salvia</defName>
+    <label>salvia prescription</label>
+    <description>A doctor's order to take salvia once per day until the course is finished.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.7, 0.85, 1)</defaultLabelColor>
+    <isBad>false</isBad>
+    <tendable>false</tendable>
+    <maxSeverity>30</maxSeverity>
+    <comps>
+      <li Class="Narcotics.HediffCompProperties_DrugPrescription">
+        <drugDef>Salvia</drugDef>
+      </li>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>active course</label>
+      </li>
+    </stages>
+  </HediffDef>
+
 </Defs>

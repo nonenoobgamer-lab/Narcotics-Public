@@ -6,3 +6,6 @@ obj/
 *.tmp
 Thumbs.db
 Desktop.ini
+
+# Full-res preview kept locally; Workshop uses compressed Preview.png
+About/Preview_full.png

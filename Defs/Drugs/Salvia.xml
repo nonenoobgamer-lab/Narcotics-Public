@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugBase">
+    <defName>Salvia</defName>
+    <label>salvia</label>
+    <description>Dried salvia leaves. Smoking them triggers a very short, overwhelming dissociative trip — users often become convinced they are a random nearby object. Mildly habit-forming if abused.\n\nReady to use when harvested — no crafting required.</description>
+    <descriptionHyperlinks>
+      <HediffDef>SalviaHigh</HediffDef>
+      <HediffDef>SalviaTolerance</HediffDef>
+      <HediffDef>SalviaAddiction</HediffDef>
+    </descriptionHyperlinks>
+    <possessionCount>5</possessionCount>
+    <graphicData>
+      <texPath>Things/Item/Drug/Salvia</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <tradeability>All</tradeability>
+    <statBases>
+      <MarketValue>11</MarketValue>
+      <Mass>0.03</Mass>
+      <DeteriorationRate>5</DeteriorationRate>
+      <Flammability>1.1</Flammability>
+    </statBases>
+    <techLevel>Neolithic</techLevel>
+    <ingestible>
+      <foodType>Plant, Processed</foodType>
+      <joyKind>Chemical</joyKind>
+      <joy>0.55</joy>
+      <baseIngestTicks>280</baseIngestTicks>
+      <nurseable>true</nurseable>
+      <drugCategory>Social</drugCategory>
+      <ingestSound>Ingest_Smoke</ingestSound>
+      <ingestEffect>Smoke_Joint</ingestEffect>
+      <ingestHoldUsesTable>false</ingestHoldUsesTable>
+      <ingestCommandString>Smoke {0}</ingestCommandString>
+      <ingestReportString>Smoking {0}.</ingestReportString>
+      <useEatingSpeedStat>false</useEatingSpeedStat>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>SalviaHigh</hediffDef>
+          <severity>0.90</severity>
+          <toleranceChemical>Salvinorin</toleranceChemical>
+        </li>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>SalviaTolerance</hediffDef>
+          <toleranceChemical>Salvinorin</toleranceChemical>
+          <severity>0.020</severity>
+          <divideByBodySize>true</divideByBodySize>
+          <multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>Salvinorin</chemical>
+        <addictiveness>0.01</addictiveness>
+        <minToleranceToAddict>0.25</minToleranceToAddict>
+        <existingAddictionSeverityOffset>0.04</existingAddictionSeverityOffset>
+        <needLevelOffset>0.8</needLevelOffset>
+        <listOrder>29</listOrder>
+        <overdoseSeverityOffset>0.08~0.16</overdoseSeverityOffset>
+      </li>
+    </comps>
+    <allowedArchonexusCount>80</allowedArchonexusCount>
+  </ThingDef>
+
+  <HediffDef>
+    <defName>SalviaHigh</defName>
+    <label>salvia trip</label>
+    <labelNoun>a salvia trip</labelNoun>
+    <description>A brief, crushing wave of salvinorin. Reality folds; identity slips. This person may believe they are an inanimate object until it passes.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.4,0.75,0.35)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-10</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+      <li Class="Narcotics.HediffCompProperties_ObjectDelusion" />
+    </comps>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.25</offset>
+          </li>
+          <li>
+            <capacity>Moving</capacity>
+            <offset>-0.15</offset>
+          </li>
+          <li>
+            <capacity>Talking</capacity>
+            <offset>-0.20</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>SalviaObjectDelusion</defName>
+    <thoughtClass>Narcotics.Thought_SalviaObjectDelusion</thoughtClass>
+    <workerClass>Narcotics.ThoughtWorker_SalviaObjectDelusion</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <label>I am an object</label>
+        <description>Obviously. Why is everyone talking to furniture?</description>
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ChemicalDef>
+    <defName>Salvinorin</defName>
+    <label>salvinorin</label>
+    <addictionHediff>SalviaAddiction</addictionHediff>
+    <toleranceHediff>SalviaTolerance</toleranceHediff>
+    <onGeneratedAddictedToleranceChance>0.4</onGeneratedAddictedToleranceChance>
+    <geneToleranceBuildupFactorResist>0.5</geneToleranceBuildupFactorResist>
+    <geneToleranceBuildupFactorImmune>0</geneToleranceBuildupFactorImmune>
+  </ChemicalDef>
+
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_Salvinorin</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>salvia</label>
+    <description>Because of a salvia dependence, this person needs to regularly consume salvia to avoid withdrawal.</description>
+    <listPriority>28</listPriority>
+  </NeedDef>
+
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>SalviaTolerance</defName>
+    <label>salvia tolerance</label>
+    <description>A built-up tolerance to salvia. The more severe this tolerance is, the more it takes to get the same effect.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.02</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>Salvinorin</chemical>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddictionBase">
+    <defName>SalviaAddiction</defName>
+    <label>salvia dependence</label>
+    <description>A chemical dependence on salvia. Without regular doses, mild withdrawal begins. Extended abstinence resolves the addiction.</description>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <chemicalNeed>Chemical_Salvinorin</chemicalNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.04</severityPerDay>
+        <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+      <li>
+        <label>withdrawal</label>
+        <mentalStateGivers>
+          <li>
+            <mentalState>Binging_DrugMinor</mentalState>
+            <mtbDays>55</mtbDays>
+          </li>
+        </mentalStateGivers>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>SalviaWithdrawal</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>SalviaAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+      <li>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>salvia withdrawal</label>
+        <description>Restless. Reality feels too solid.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>
