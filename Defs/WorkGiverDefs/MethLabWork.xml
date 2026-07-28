@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Separate Work tab column so meth cooking can be prioritized vs general Crafting / drug lab. -->
+  <WorkTypeDef>
+    <defName>Narcotics_CookMeth</defName>
+    <labelShort>Meth</labelShort>
+    <pawnLabel>Meth cook</pawnLabel>
+    <gerundLabel>Cooking meth</gerundLabel>
+    <description>Cook meth at a meth lab.</description>
+    <verb>Cook</verb>
+    <naturalPriority>480</naturalPriority>
+    <relevantSkills>
+      <li>Intellectual</li>
+      <li>Crafting</li>
+    </relevantSkills>
+    <workTags>
+      <li>Intellectual</li>
+      <li>Crafting</li>
+    </workTags>
+  </WorkTypeDef>
+
+  <WorkGiverDef>
+    <defName>Narcotics_DoBillsMethLab</defName>
+    <label>cook meth</label>
+    <giverClass>WorkGiver_DoBill</giverClass>
+    <workType>Narcotics_CookMeth</workType>
+    <priorityInType>100</priorityInType>
+    <fixedBillGiverDefs>
+      <li>MethLab</li>
+    </fixedBillGiverDefs>
+    <verb>cook meth at</verb>
+    <gerund>cooking meth at</gerund>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+</Defs>
