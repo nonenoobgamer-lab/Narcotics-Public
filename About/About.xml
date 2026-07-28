@@ -3,7 +3,7 @@
   <name>Narcotics</name>
   <author>Anarchist</author>
   <packageId>jeffr.Narcotics</packageId>
-  <modVersion IgnoreIfNoMatchingField="True">0.4.3</modVersion>
+  <modVersion IgnoreIfNoMatchingField="True">0.4.4</modVersion>
   <description>Adds real-world-inspired narcotics to RimWorld, built on vanilla drug systems — highs, tolerance, addiction, withdrawal, and overdose — plus doctor prescriptions under Operations.
 
 What's included:

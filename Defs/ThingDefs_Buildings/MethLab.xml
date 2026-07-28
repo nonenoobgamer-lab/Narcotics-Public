@@ -9,7 +9,7 @@
     <graphicData>
       <texPath>Things/Building/Production/MethLab</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
+      <shaderType>Cutout</shaderType>
       <drawSize>(3.5,1.5)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
@@ -20,11 +20,6 @@
     </graphicData>
     <castEdgeShadows>true</castEdgeShadows>
     <staticSunShadowHeight>0.20</staticSunShadowHeight>
-    <costStuffCount>40</costStuffCount>
-    <stuffCategories>
-      <li>Metallic</li>
-      <li>Woody</li>
-    </stuffCategories>
     <costList>
       <Steel>60</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
@@ -40,6 +35,7 @@
     </statBases>
     <size>(3,1)</size>
     <designationCategory>Production</designationCategory>
+    <uiOrder>2535</uiOrder>
     <passability>PassThroughOnly</passability>
     <pathCost>50</pathCost>
     <hasInteractionCell>True</hasInteractionCell>
@@ -51,7 +47,7 @@
     </inspectorTabs>
     <building>
       <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
-      <paintable>true</paintable>
+      <paintable>false</paintable>
       <workTableRoomRole>Laboratory</workTableRoomRole>
       <workTableNotInRoomRoleFactor>0.8</workTableNotInRoomRoleFactor>
     </building>
