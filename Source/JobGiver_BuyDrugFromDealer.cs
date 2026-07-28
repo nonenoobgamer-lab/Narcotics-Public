@@ -9,6 +9,13 @@ namespace Narcotics
     public class JobGiver_BuyDrugFromDealer : ThinkNode_JobGiver
     {
         private const float CriticalNeed = 0.25f;
+        // Just under JobGiver_SatisfyChemicalNeed (~9.25) so colony stock is tried first.
+        private const float PriorityWhenNeeded = 9.15f;
+
+        public override float GetPriority(Pawn pawn)
+        {
+            return FindNeededDrug(pawn) != null ? PriorityWhenNeeded : 0f;
+        }
 
         protected override Job TryGiveJob(Pawn pawn)
         {
@@ -17,13 +24,39 @@ namespace Narcotics
                 return null;
             }
 
-            List<Hediff> hediffs = pawn.health?.hediffSet?.hediffs;
-            if (hediffs == null)
+            ThingDef drugDef = FindNeededDrug(pawn);
+            if (drugDef == null)
             {
                 return null;
             }
 
-            ThingDef drugDef = null;
+            if (!FindDealerAndDrug(pawn, drugDef, out Pawn dealer, out Thing drugThing))
+            {
+                return null;
+            }
+
+            int price = Mathf.Max(1, Mathf.RoundToInt(drugDef.BaseMarketValue));
+            if (!HasEnoughSilver(pawn.Map, price))
+            {
+                return null;
+            }
+
+            Job job = JobMaker.MakeJob(
+                DefDatabase<JobDef>.GetNamed("Narcotics_BuyDrugFromDealer"),
+                dealer,
+                drugThing);
+            job.count = 1;
+            return job;
+        }
+
+        private static ThingDef FindNeededDrug(Pawn pawn)
+        {
+            if (pawn?.health?.hediffSet?.hediffs == null || pawn.Map == null)
+            {
+                return null;
+            }
+
+            List<Hediff> hediffs = pawn.health.hediffSet.hediffs;
             for (int i = 0; i < hediffs.Count; i++)
             {
                 if (!(hediffs[i] is Hediff_Addiction addiction))
@@ -49,32 +82,10 @@ namespace Narcotics
                     continue;
                 }
 
-                drugDef = candidate;
-                break;
+                return candidate;
             }
 
-            if (drugDef == null)
-            {
-                return null;
-            }
-
-            if (!FindDealerAndDrug(pawn, drugDef, out Pawn dealer, out Thing drugThing))
-            {
-                return null;
-            }
-
-            int price = Mathf.Max(1, Mathf.RoundToInt(drugDef.BaseMarketValue));
-            if (!HasEnoughSilver(pawn.Map, price))
-            {
-                return null;
-            }
-
-            Job job = JobMaker.MakeJob(
-                DefDatabase<JobDef>.GetNamed("Narcotics_BuyDrugFromDealer"),
-                dealer,
-                drugThing);
-            job.count = 1;
-            return job;
+            return null;
         }
 
         private static bool ColonyHasReachableDrug(Pawn pawn, ThingDef drugDef)
